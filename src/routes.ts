@@ -1,11 +1,12 @@
-import Router from 'koa-router'
-import { requestLogger } from './middlewares/requestLogger'
-import { responseBuilder } from './middlewares/responseBuilder'
+import Router from 'koa-router';
+import { createUser, getAllContacts, getById, updateUser } from './controllers/ContactController';
+import { requestLogger } from './middlewares/requestLogger';
+import { responseBuilder } from './middlewares/responseBuilder';
 
-const apiRouter = new Router({ prefix: '/api' })
+const apiRouter = new Router({ prefix: '/api' });
 
-apiRouter.use(responseBuilder)
-apiRouter.use(requestLogger)
+apiRouter.use(responseBuilder);
+apiRouter.use(requestLogger);
 
 /**
  * GET /api/contacts - получение списка контактов
@@ -14,4 +15,8 @@ apiRouter.use(requestLogger)
  * PUT /api/contacts/:cid - редактирование существующего контакта
  */
 
-export default [apiRouter]
+export default [apiRouter];
+apiRouter.get('/contacts', getAllContacts);
+apiRouter.get('/contacts/:id', getById);
+apiRouter.post('/contacts', createUser);
+apiRouter.put('/contacts/:id', updateUser);

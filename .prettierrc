@@ -1,0 +1,9 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "printWidth": 160,
+  "plugins": [
+    "prettier-plugin-organize-imports"
+  ]
+}

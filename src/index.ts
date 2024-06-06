@@ -8,13 +8,15 @@ import { Contact } from './models/Contact'
 
 initDb({
   "host": "127.0.0.1",
-  "user": "backend",
-  "database": "backend"
+  "user": "postgres",
+  "database": "test",
+  "password": "admin"
 })
+
 
 Contact.pool = getPool()
 
-const port = 5000
+const port = 8080
 const koa = new Koa()
 const server = http.createServer({}, koa.callback())
 
